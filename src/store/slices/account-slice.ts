@@ -38,7 +38,7 @@ export const getBalances = createAsyncThunk("account/getBalances", async ({ addr
     return {
         balances: {
             nusd: ethers.utils.formatUnits(nusdBalance, "ether"),
-            nmeta: ethers.utils.formatUnits(nmetaBalance, "ether"),
+            nmeta: ethers.utils.formatUnits(nmetaBalance * 10, "gwei"),
             wnusd: ethers.utils.formatEther(wnusdBalance),
         },
     };
@@ -66,6 +66,7 @@ interface IUserAccountDetails {
 }
 
 export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails", async ({ networkID, provider, address }: ILoadAccountDetails): Promise<IUserAccountDetails> => {
+    console.log("here---->");
     let nmetaBalance = 0;
     let nusdBalance = 0;
 
@@ -101,7 +102,7 @@ export const loadAccountDetails = createAsyncThunk("account/loadAccountDetails",
     return {
         balances: {
             nusd: ethers.utils.formatUnits(nusdBalance, "ether"),
-            nmeta: ethers.utils.formatUnits(nmetaBalance, "ether"),
+            nmeta: ethers.utils.formatUnits(nmetaBalance * 10, "gwei"),
             wnusd: ethers.utils.formatEther(wnusdBalance),
         },
         staking: {
@@ -281,6 +282,7 @@ const accountSlice = createSlice({
     extraReducers: builder => {
         builder
             .addCase(loadAccountDetails.pending, state => {
+                console.log("pending");
                 state.loading = true;
             })
             .addCase(loadAccountDetails.fulfilled, (state, action) => {

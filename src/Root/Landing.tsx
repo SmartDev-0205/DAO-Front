@@ -11,7 +11,7 @@ function App() {
     const { provider, chainID, connected } = useWeb3Context();
 
     const loadApp = useCallback(
-        loadProvider => {
+        (loadProvider: any) => {
             dispatch(loadAppDetails({ networkID: chainID, provider: loadProvider }));
         },
         [connected],

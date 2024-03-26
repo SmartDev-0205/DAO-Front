@@ -11,7 +11,7 @@ import { Skeleton } from "@material-ui/lab";
 import { IReduxState } from "../../store/slices/state.interface";
 import { messages } from "../../constants/messages";
 import classnames from "classnames";
-import { warning } from "../../store/slices/messages-slice";
+import { warning, error } from "../../store/slices/messages-slice";
 
 function Stake() {
     const dispatch = useDispatch();
@@ -78,7 +78,7 @@ function Stake() {
     };
 
     const hasAllowance = useCallback(
-        token => {
+        (token: any) => {
             if (token === "nmeta") return stakeAllowance > 0;
             if (token === "nusd") return unstakeAllowance > 0;
             return 0;
@@ -211,6 +211,11 @@ function Stake() {
                                                         <div
                                                             className="stake-card-tab-panel-btn"
                                                             onClick={() => {
+                                                                if (quantity > nmetaBalance) {
+                                                                    dispatch(error({ text: "Insufficient Funds" }));
+                                                                    return;
+                                                                }
+
                                                                 if (isPendingTxn(pendingTransactions, "approve_staking")) return;
                                                                 onSeekApproval("nmeta");
                                                             }}

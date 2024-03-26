@@ -13,7 +13,6 @@ ReactDOM.render(
             vertical: "bottom",
             horizontal: "right",
         }}
-        content={(key, message: string) => <SnackMessage id={key} message={JSON.parse(message)} />}
         autoHideDuration={10000}
     >
         <Provider store={store}>

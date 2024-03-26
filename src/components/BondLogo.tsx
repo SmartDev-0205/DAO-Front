@@ -13,9 +13,11 @@ function BondLogo({ bond }: IBondLogoProps) {
     }
 
     return (
-        <div className="d-flex align-items-center justify-content-center w-16">
+        // <Box display="flex" alignItems="center" justifyContent="center" width={"64px"}>
+        <div>
             <img src={bond.bondIconSvg} style={style} />
         </div>
+        // </Box>
     );
 }
 

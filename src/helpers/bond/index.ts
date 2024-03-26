@@ -22,7 +22,7 @@ export const busd = new StableBond({
             reserveAddress: "0xffa3B19EDAe07A458120a91408cC00917aedF607",
         },
         [Networks.BSC_TESTNET]: {
-            bondAddress: "0x2A40A8Daf771a1ea73073604139aA964113b6603",
+            bondAddress: "0x2a4f14B266F5B764EF20E4f988Fd974449fD7Ef9",
             reserveAddress: "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7",
         },
     },
@@ -42,7 +42,7 @@ export const wbnb = new CustomBond({
             reserveAddress: "0xd00ae08403b9bbb9124bb305c09058e32c39a48c",
         },
         [Networks.BSC_TESTNET]: {
-            bondAddress: "0x19255821a1cc66C199B2c474696B265741e30566",
+            bondAddress: "0xcbC301C71269a80D9522651ae8C2d87e8E7cEe0D",
             reserveAddress: "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
         },
     },
@@ -62,7 +62,7 @@ export const busdNmeta = new LPBond({
             reserveAddress: "0x60ccc9efee8fe4326fe99976f48522e2e0b66d67",
         },
         [Networks.BSC_TESTNET]: {
-            bondAddress: "0x18062A1988CBAD3D421552EB1C401e902AD0f195",
+            bondAddress: "0x860209C715e25f7f89Ed359AaD620207b0fc25eb",
             reserveAddress: "0x9a256121528DC09207A8080e4c68103407f9CBCA",
         },
     },
@@ -85,7 +85,7 @@ export const bnbNmeta = new CustomLPBond({
             reserveAddress: "0x96c33729a7819387c459cba3682266c21a117966",
         },
         [Networks.BSC_TESTNET]: {
-            bondAddress: "0x0eeF6aa30e935c80c32527f96850a3A7D7756B0D",
+            bondAddress: "0x35d0e326EC85B2bC2Be5888415c7a3a7E2c92A6d",
             reserveAddress: "0x465155142C62A7A26060Ae7802966612a55a7748",
         },
     },

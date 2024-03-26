@@ -27,8 +27,9 @@ export const loadAppDetails = createAsyncThunk(
         const nmetaContract = new ethers.Contract(addresses.NMETA_ADDRESS, NmetaTokenContract, provider);
 
         const marketPrice = (await getMarketPrice(networkID, provider)) * busdPrice;
+        // const marketPrice = busdPrice;
 
-        const totalSupply = (await nmetaContract.totalSupply()) / Math.pow(10, 18);
+        const totalSupply = (await nmetaContract.totalSupply()) / Math.pow(10, 8);
         const circSupply = (await nusdContract.circulatingSupply()) / Math.pow(10, 18);
 
         const stakingTVL = circSupply * marketPrice;

@@ -19,7 +19,7 @@ export const busd: IToken = {
     name: "BUSD",
     address: {
         [Networks.BSC_MAINNET]: "0xC8B7F8eEC1dB0Fd16054C9f9F0203e988b96FBaE",
-        [Networks.BSC_TESTNET]: "0xab1a4d4f1d656d2450692d237fdd6c7f9146e814",
+        [Networks.BSC_TESTNET]: "0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7",
     },
     img: BusdIcon,
     decimals: 18,
@@ -29,10 +29,10 @@ const nmeta: IToken = {
     name: "NMETA",
     address: {
         [Networks.BSC_MAINNET]: "0x9716F8F7dC5EC6A3309B336b93E3B9393B011523",
-        [Networks.BSC_TESTNET]: "0x5467B4d0aC87c7eE5d030AdcFb25cFe4Be87aA77",
+        [Networks.BSC_TESTNET]: "0xe599CBaA7f560E2B50Ba7a12A76E27334b7e979C",
     },
     img: NmetaIcon,
-    decimals: 8,
+    decimals: 18,
 };
 
 export const bnb: IToken = {

@@ -55,12 +55,8 @@ function ViewBase({ children }: IViewBaseProps) {
             <Messages />
             <Header drawe={!isSmallerScreen} handleDrawerToggle={handleDrawerToggle} />
             <div className={classes.drawer}>
-                <Hidden mdUp>
-                    <MobileDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
-                </Hidden>
-                <Hidden smDown>
-                    <Drawer />
-                </Hidden>
+                <MobileDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+                <Drawer />
             </div>
             <div className={`${classes.content} ${isSmallerScreen && classes.contentShift}`}>{children}</div>
         </div>

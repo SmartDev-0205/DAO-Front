@@ -123,42 +123,40 @@ const SnackMessage = forwardRef<HTMLDivElement, { id: string | number; message: 
     };
 
     return (
-        <>
-            <SnackbarContent ref={ref} className={classes.root}>
-                <Card className={classnames(classes.card, classes[props.message.severity])}>
-                    <CardActions classes={{ root: classes.actionRoot }}>
-                        {getIcon(props.message.severity)}
-                        <Typography variant="subtitle2" className={classes.typography}>
-                            {props.message.text}
-                        </Typography>
-                        <div className={classes.icons}>
-                            {props.message.error && (
-                                <IconButton aria-label="Show more" className={classnames(classes.expand, { [classes.expandOpen]: expanded })} onClick={handleExpandClick}>
-                                    <ExpandMoreIcon color="inherit" />
-                                </IconButton>
-                            )}
-                            <IconButton className={classes.expand} onClick={handleDismiss}>
-                                <CloseIcon color="inherit" />
+        <SnackbarContent ref={ref} className={classes.root}>
+            <Card className={classnames(classes.card, classes[props.message.severity])}>
+                <CardActions classes={{ root: classes.actionRoot }}>
+                    {getIcon(props.message.severity)}
+                    <Typography variant="subtitle2" className={classes.typography}>
+                        {props.message.text}
+                    </Typography>
+                    <div className={classes.icons}>
+                        {props.message.error && (
+                            <IconButton aria-label="Show more" className={classnames(classes.expand, { [classes.expandOpen]: expanded })} onClick={handleExpandClick}>
+                                <ExpandMoreIcon color="inherit" />
                             </IconButton>
+                        )}
+                        <IconButton className={classes.expand} onClick={handleDismiss}>
+                            <CloseIcon color="inherit" />
+                        </IconButton>
+                    </div>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <Paper className={classes.collapse}>
+                        <CopyToClipboard text={JSON.stringify(props.message.error)} onCopy={() => setIsCopy(true)}>
+                            <Button size="small" className={classes.button}>
+                                <CheckCircleIcon className={classnames(classes.checkIcon, { [classes.checkIconCopy]: isCopy })} />
+                                Copy to clipboard
+                            </Button>
+                        </CopyToClipboard>
+                        <div className={classes.errorWrap}>
+                            <Typography>Error message: </Typography>
+                            <Typography className={classes.errorText}>{JSON.stringify(props.message.error, null, 2)}</Typography>
                         </div>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <Paper className={classes.collapse}>
-                            <CopyToClipboard text={JSON.stringify(props.message.error)} onCopy={() => setIsCopy(true)}>
-                                <Button size="small" className={classes.button}>
-                                    <CheckCircleIcon className={classnames(classes.checkIcon, { [classes.checkIconCopy]: isCopy })} />
-                                    Copy to clipboard
-                                </Button>
-                            </CopyToClipboard>
-                            <div className={classes.errorWrap}>
-                                <Typography>Error message: </Typography>
-                                <Typography className={classes.errorText}>{JSON.stringify(props.message.error, null, 2)}</Typography>
-                            </div>
-                        </Paper>
-                    </Collapse>
-                </Card>
-            </SnackbarContent>
-        </>
+                    </Paper>
+                </Collapse>
+            </Card>
+        </SnackbarContent>
     );
 });
 

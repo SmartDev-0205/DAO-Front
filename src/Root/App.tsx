@@ -55,7 +55,7 @@ function App() {
     }
 
     const loadApp = useCallback(
-        loadProvider => {
+        (loadProvider: any) => {
             dispatch(loadAppDetails({ networkID: chainID, provider: loadProvider }));
             bonds.map(bond => {
                 dispatch(calcBondDetails({ bond, value: null, provider: loadProvider, networkID: chainID }));
@@ -67,8 +67,9 @@ function App() {
         [connected],
     );
 
+    console.log("load provider", chainID, address, connected, walletChecked);
     const loadAccount = useCallback(
-        loadProvider => {
+        (loadProvider: any) => {
             dispatch(loadAccountDetails({ networkID: chainID, address, provider: loadProvider }));
         },
         [connected],
