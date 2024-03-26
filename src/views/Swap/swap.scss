@@ -1,0 +1,23 @@
+.swap-view {
+    width: 89%;
+    max-width: 580px;
+    margin: auto;
+    position: relative;
+
+    .swap-top {
+        width: calc(100% - 16px);
+        background-color: rgb(30, 39, 53);
+        height: 60px;
+        top: 0px;
+        position: absolute;
+        margin: 2px;
+        border-radius: 10px;
+    }
+
+    iframe {
+        height: 780px;
+        width: 100%;
+        border: 0;
+        border-radius: 10px;
+    }
+}
